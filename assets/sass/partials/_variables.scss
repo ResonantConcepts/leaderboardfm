@@ -1,0 +1,76 @@
+$breakpoints: (
+  sm: 36rem,
+  md: 46rem,
+  lg: 56rem
+);
+
+@mixin bp($breakpoint) { 
+	@media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+		@content;
+	}
+  }
+
+:root {
+    --red: hsl(342, 75%, 50%);
+    
+	@for $i from 1 through 20 {
+		$step: $i * 5;
+		--slate#{$step}: hsl(207, 30%, #{$step}%);
+	}
+}
+
+#page {
+    --body-bg: var(--slate90);
+	--body-color: var(--slate10);
+	--header-bg: var(--slate95);
+	--header-color: var(--slate40);
+	--header-hover: var(--slate20);
+
+	--sidebar-bg: var(--slate95);
+	--sidebar-color: var(--slate30);
+	--sidebar-heading: var(--slate20);
+	--sidebar-shadow: var(--slate80);
+
+	--toolbar-bg: var(--slate80);
+	--toolbar-color: var(--slate40);
+	--toolbar-btn-bg: var(--slate90);
+	--toolbar-btn-select: var(--slate70);
+	--toolbar-btn-focus: var(--slate70);
+	--toolbar-btn-hover: var(--slate95);
+
+	--tweet-bg: var(--slate95);
+	--tweet-bg-hover: var(--slate100);
+	--tweet-color: var(--slate10);
+	--tweet-heart: var(--slate50);
+	--tweet-heart-focus: var(--slate30);
+	--tweet-details: var(--slate50);
+    --tweet-timestamp: var(--slate70);
+    
+	&.theme-dark {
+		--body-bg: var(--slate5);
+		--body-color: var(--slate40);
+		--header-bg: var(--slate20);
+		--header-color: var(--slate80);
+		--header-hover: var(--slate90);
+
+		--sidebar-bg: var(--slate20);
+		--sidebar-color: var(--slate80);
+		--sidebar-heading: var(--slate90);
+		--sidebar-shadow: var(--slate5);
+
+		--toolbar-bg: var(--slate10);
+		--toolbar-color: var(--slate70);
+		--toolbar-btn-bg: var(--slate30);
+		--toolbar-btn-select: var(--slate20);
+		--toolbar-btn-focus: var(--slate50);
+		--toolbar-btn-hover: var(--slate40);
+
+		--tweet-bg: var(--slate20);
+		--tweet-bg-hover: var(--slate30);
+		--tweet-color: var(--slate90);
+		--tweet-heart: var(--slate60);
+		--tweet-heart-focus: var(--slate80);
+		--tweet-details: var(--slate60);
+		--tweet-timestamp: var(--slate40);
+	}
+}

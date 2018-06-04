@@ -1,0 +1,156 @@
+.tweets {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tweets-move {
+	transition: all 0.75s ease;
+}
+
+.tweet-wrapper {
+	background: var(--tweet-bg);
+	padding: .5rem;
+	padding-right: 1rem;
+	display: flex;
+	margin-bottom: 1px;
+
+	&:hover {
+		background: var(--tweet-bg-hover);
+	}
+}
+
+.heart {
+    -webkit-appearance: none;
+    border:none;
+    width:3rem;
+	background: none;
+	padding: 0;
+	overflow: hidden;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.like-heart {
+	fill: var(--tweet-heart);
+	width: 100%;
+
+	.heart:hover & {
+		fill: var(--red);
+	}
+
+	.heart.pop & {
+		fill: var(--red);
+		animation: like-heart-animation 1s ease-in-out;
+	}
+
+	.heart:focus:not(:hover) & {
+		fill: var(--tweet-heart-focus);
+	}
+}
+
+.like-count {
+	color: var(--tweet-heart);
+	font-size: .75rem;
+	line-height: 1;
+
+	.heart:hover & {
+		color: var(--red);
+	}
+
+	.heart:focus:not(:hover) & {
+		color: var(--tweet-heart-focus);
+	}
+
+	.heart.pop & {
+		color: var(--red);
+	}
+}
+
+@keyframes like-heart-animation {
+	0% {transform: scale(0);}
+	15% {transform: scale(1.2);}
+	30% {transform: scale(.95);}
+	45%, 80% {transform: scale(1);}
+}
+
+.tweet-body {
+	padding-left: .5rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.tweet-text {
+	margin: 0 0 .5rem;
+	font-size: (14/16+rem);
+	letter-spacing: (.2/16+rem);
+	line-height: (20/14);
+	color: var(--tweet-color);
+}
+
+.tweet-details {
+	font-size: .75rem;
+	letter-spacing: (.2/16+rem);
+	line-height: 1;
+	display: flex;
+	align-items: center;
+
+	a {
+		text-decoration: none;
+		color: var(--tweet-timestamp);
+	}
+}
+
+.tweet-profile {
+    display: flex;
+	align-items: center;
+	
+	&:hover .tweet-name {
+		text-decoration: underline;
+	}
+}
+
+.tweet-avatar {
+	display: block;
+	width: 1.25rem;
+	height: 1.25rem;
+	border-radius: 50%;
+	background: var(--tweet-details);
+}
+
+.tweet-name {
+	display: block;
+	color: var(--tweet-details);
+	margin: 0 .25rem;
+}
+
+.tweet-handle {
+	display: block;
+}
+
+.tweet-timestamp {
+	flex: 1;
+	margin-left: .25rem;
+
+	&:before {
+		margin-right: .25rem;
+		content: " \00b7 ";
+	}
+
+	&:hover span {
+		text-decoration: underline;
+	}
+
+	
+}
+
+.tweet-logo svg {
+    width: 1em;
+    fill: var(--tweet-timestamp);
+	margin-left: .5em;
+	display: block;
+}

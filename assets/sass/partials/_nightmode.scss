@@ -1,0 +1,71 @@
+.night-mode {
+    display: flex;
+    justify-content: center;
+}
+
+:root {
+	--switch-font-size: 16px;
+    --switch-w: 4em;
+    --switch-h: 2em;
+    --switch-off-bg: linear-gradient(180deg, rgba(36,215,247,1) 0%, rgba(98,231,247,1) 100%);
+	--switch-on-bg: linear-gradient(180deg, rgba(2,16,55,1) 0%, rgba(32,32,106,1) 100%);
+	--switch-continuous-grad: linear-gradient(180deg, rgba(2,16,55,1) 0%, rgba(32,32,106,1) 19%, rgba(65,132,177,1) 66%, rgba(98,231,247,1) 100%);
+    --switch-off-handle-color: #fffad8;
+    --switch-on-handle-color: transparent;
+	--switch-off-shadow: 
+		0 0 .25em .0625em #fbee8d, 
+		0 0 2em 0 #FFEB3B, 
+		inset -.25em -.25em 0 0 #fbee8e, 
+		inset -.3125em -.3125em 0 .625em #fff5b2;
+    --switch-on-shadow: inset -.1875em -.1875em 0 0 #fbe7ef, inset -.5625em -.5625em 0 0 #fffff7;
+	--switch-handle-scale: .65;
+	--switch-border-width: .125em;
+    --switch-off-handle-x: -.125em;
+    --switch-on-handle-x: calc(100% - .125em);
+	--switch-transition-duration: .2s;
+}
+
+#action-theme {
+	display: none;
+	
+	& + label {
+		font-size: var(--switch-font-size);
+		display: flex;
+		height: var(--switch-h);
+		width: var(--switch-w);
+		border-radius: calc(var(--switch-h) / 2);
+		background-size: auto 8em;
+    	background-position: bottom;
+		background-image: var(--switch-continuous-grad);
+        transition: var(--switch-transition-duration);
+		border: var(--switch-border-width) solid var(--slate95);
+		overflow: hidden;
+		
+		span {
+			background: var(--switch-off-handle-color);
+			border-radius: 50%;
+			height: var(--switch-h);
+			width: var(--switch-h);
+			transform: translateX(var(--switch-off-handle-x)) scale(var(--switch-handle-scale));	
+			transition: var(--switch-transition-duration);
+            cursor: pointer;
+            box-shadow: var(--switch-off-shadow);
+            margin-top: var(--switch-off-handle-x);
+		}
+	}
+	
+	&:checked {
+		font-size: var(--switch-font-size);
+
+		& + label {
+			background-position: top;
+            border-color: var(--slate50);
+			
+			span {
+				background: var(--switch-on-handle-color);
+                transform: translateX(var(--switch-on-handle-x)) scale(var(--switch-handle-scale));
+                box-shadow: var(--switch-on-shadow);
+			}
+		}
+	}
+}
