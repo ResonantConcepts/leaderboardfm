@@ -100,19 +100,18 @@ img {
   min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; }
 
-.wrapper, .container {
+.container, .wrapper {
   max-width: 36rem;
   margin: 0 auto; }
   @media (min-width: 46rem) {
-    .wrapper, .container {
+    .container, .wrapper {
       max-width: 56rem;
       padding-left: 1rem;
       padding-right: 1rem; }
       @supports (padding: 0px) {
-        .wrapper, .container {
+        .container, .wrapper {
           padding-left: max(1rem, env(safe-area-inset-left));
           padding-right: max(1rem, env(safe-area-inset-right)); } } }
-
 .primary {
   position: relative; }
 
@@ -126,7 +125,7 @@ img {
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 1rem; } }
 
-main, .site-header, .sidebar-widget {
+.sidebar-widget, .site-header, main {
   box-shadow: 0 1.5rem 3rem -0.5rem var(--sidebar-shadow); }
 
 @media (min-width: 46rem) {
@@ -181,20 +180,18 @@ main, .site-header, .sidebar-widget {
   flex: 1; }
 
 .sidebar-widget {
-  margin: 1rem 0;
+  margin-top: 1rem;
   padding: 1rem;
-  background: var(--sidebar-bg);
-  color: var(--sidebar-color); }
+  color: var(--sidebar-color);
+  background: var(--sidebar-bg); }
+  @media (min-width: 46rem) {
+    .sidebar-widget {
+      margin-top: 0;
+      border-radius: .25rem; } }
   .sidebar-widget h1, .sidebar-widget h2, .sidebar-widget h3, .sidebar-widget h4, .sidebar-widget h5, .sidebar-widget h6 {
     color: var(--sidebar-heading); }
   .sidebar-widget a {
     color: var(--sidebar-color); }
-  @media (min-width: 46rem) {
-    .sidebar-widget {
-      margin: 0;
-      border-radius: .25rem; }
-      .sidebar-widget + .sidebar-widget {
-        margin: 1rem 0; } }
 
 .site-toolbar {
   background: var(--toolbar-bg);
@@ -206,7 +203,6 @@ main, .site-header, .sidebar-widget {
   @media (min-width: 46rem) {
     .site-toolbar {
       padding: .5rem; } }
-
 .btn-group {
   display: flex; }
 
@@ -440,7 +436,8 @@ main, .site-header, .sidebar-widget {
 
 .night-mode {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: 1rem; }
 
 :root {
   --switch-font-size: 16px;
@@ -466,35 +463,35 @@ main, .site-header, .sidebar-widget {
 #action-theme {
   display: none; }
   #action-theme + label {
-    font-size: var(--switch-font-size);
     display: flex;
-    height: var(--switch-h);
+    overflow: hidden;
     width: var(--switch-w);
-    border-radius: calc(var(--switch-h) / 2);
-    background-size: auto 8em;
-    background-position: bottom;
-    background-image: var(--switch-continuous-grad);
+    height: var(--switch-h);
     transition: var(--switch-transition-duration);
     border: var(--switch-border-width) solid var(--slate95);
-    overflow: hidden; }
+    border-radius: calc(var(--switch-h) / 2);
+    background-image: var(--switch-continuous-grad);
+    background-position: bottom;
+    background-size: auto 8em;
+    font-size: var(--switch-font-size); }
     #action-theme + label span {
-      background: var(--switch-off-handle-color);
-      border-radius: 50%;
-      height: var(--switch-h);
       width: var(--switch-h);
-      transform: translateX(var(--switch-off-handle-x)) scale(var(--switch-handle-scale));
-      transition: var(--switch-transition-duration);
+      height: var(--switch-h);
+      margin-top: var(--switch-off-handle-x);
       cursor: pointer;
-      box-shadow: var(--switch-off-shadow);
-      margin-top: var(--switch-off-handle-x); }
+      transition: var(--switch-transition-duration);
+      transform: translateX(var(--switch-off-handle-x)) scale(var(--switch-handle-scale));
+      border-radius: 50%;
+      background: var(--switch-off-handle-color);
+      box-shadow: var(--switch-off-shadow); }
   #action-theme:checked {
     font-size: var(--switch-font-size); }
     #action-theme:checked + label {
-      background-position: top;
-      border-color: var(--slate50); }
+      border-color: var(--slate50);
+      background-position: top; }
       #action-theme:checked + label span {
-        background: var(--switch-on-handle-color);
         transform: translateX(var(--switch-on-handle-x)) scale(var(--switch-handle-scale));
+        background: var(--switch-on-handle-color);
         box-shadow: var(--switch-on-shadow); }
 
 .site-footer {

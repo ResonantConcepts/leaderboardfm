@@ -1,6 +1,7 @@
 .night-mode {
     display: flex;
-    justify-content: center;
+	justify-content: center;
+	margin-top: 1rem;
 }
 
 :root {
@@ -29,41 +30,40 @@
 	display: none;
 	
 	& + label {
-		font-size: var(--switch-font-size);
 		display: flex;
-		height: var(--switch-h);
+		overflow: hidden;
 		width: var(--switch-w);
-		border-radius: calc(var(--switch-h) / 2);
-		background-size: auto 8em;
-    	background-position: bottom;
-		background-image: var(--switch-continuous-grad);
+		height: var(--switch-h);
         transition: var(--switch-transition-duration);
 		border: var(--switch-border-width) solid var(--slate95);
-		overflow: hidden;
+		border-radius: calc(var(--switch-h) / 2);
+		background-image: var(--switch-continuous-grad);
+    	background-position: bottom;
+		background-size: auto 8em;
+		font-size: var(--switch-font-size);
 		
 		span {
-			background: var(--switch-off-handle-color);
-			border-radius: 50%;
-			height: var(--switch-h);
 			width: var(--switch-h);
-			transform: translateX(var(--switch-off-handle-x)) scale(var(--switch-handle-scale));	
-			transition: var(--switch-transition-duration);
-            cursor: pointer;
-            box-shadow: var(--switch-off-shadow);
+			height: var(--switch-h);
             margin-top: var(--switch-off-handle-x);
-		}
+            cursor: pointer;	transition: var(--switch-transition-duration);
+			transform: translateX(var(--switch-off-handle-x)) scale(var(--switch-handle-scale));	
+			border-radius: 50%;
+			background: var(--switch-off-handle-color);
+            box-shadow: var(--switch-off-shadow);
+			}
 	}
 	
 	&:checked {
 		font-size: var(--switch-font-size);
 
 		& + label {
-			background-position: top;
             border-color: var(--slate50);
+			background-position: top;
 			
 			span {
-				background: var(--switch-on-handle-color);
                 transform: translateX(var(--switch-on-handle-x)) scale(var(--switch-handle-scale));
+				background: var(--switch-on-handle-color);
                 box-shadow: var(--switch-on-shadow);
 			}
 		}

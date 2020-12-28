@@ -1,9 +1,14 @@
 .sidebar-widget {
-	margin: 1rem 0;
+	margin-top: 1rem;
 	padding: 1rem;
-	background: var(--sidebar-bg);
 	color: var(--sidebar-color);
+	background: var(--sidebar-bg);
+
 	@extend %shadow;
+	@include bp(md) {
+		margin-top: 0;
+		border-radius: .25rem;
+	}
 
 	h1,h2,h3,h4,h5,h6 {
 		color: var(--sidebar-heading);
@@ -11,14 +16,5 @@
 
 	a {
 		color: var(--sidebar-color);
-	}
-
-	@include bp(md) {
-		margin: 0;
-		border-radius: .25rem;
-
-		& + .sidebar-widget {
-			margin: 1rem 0;
-		}
 	}
 }

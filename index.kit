@@ -64,7 +64,7 @@
                                         <span class="tweet-handle">@{{ status.user.screen_name }}</span>
                                     </a>
                                     <a :href="'https://twitter.com/' + status.user.screen_name + '/status/' + status.id_str" class="tweet-timestamp"><span>{{ status.created_at | moment }}</span></a>
-                                    <a :href="'https://twitter.com/' + status.user.screen_name + '/status/' + status.id_str" class="tweet-logo"><!-- @import "assets/img/icon/twitter.svg" --></a>
+                                    <a :href="'https://twitter.com/' + status.user.screen_name + '/status/' + status.id_str" class="tweet-logo"><svg aria-label="twitter-icon" viewBox="0 0 64 64"><use id="twitter" xlink:href="#twitter"></use></svg></a>
                                 </div>
                             </div>
                         </li>
@@ -75,10 +75,6 @@
                         <h2>Listen to your audience better</h2>
                         <p>Asking your audience to submit feedback via a Twitter hashtag is a great first step. But it doesn't tell you how to prioritize what matters to your audience. Leaderboard.fm is a platform to collect and rank audience feedback. Direct your audience to submit their tweets via Leaderboard.fm and then to like the tweets that they think you should see.</p>
                     </div>
-                    <div class="sidebar-widget">
-                        <h3>Feedback on Leaderboard.fm</h3>
-                        <p>If you have any suggestions for how to make Leaderboard.fm better, tweet with the hashtag <a href="/LeaderboardFMFeedback">#LeaderboardFMFeedback</a> and I'll address it as soon as I can.</p>
-                    </div>
                     <div class="night-mode">
                         <input type="checkbox" id="action-theme" v-model="nightMode">
                         <label for="action-theme"><span></span></label>
@@ -88,11 +84,9 @@
         </section>
         <footer class="site-footer">
             <div class="wrapper">
-                <span>&copy; <a href="http://nathangathright">Nathan Gathright</a></span>
+                <span>&copy; <a href="https://resonantconcepts.com/">Resonant Concepts</a></span>
                 <ul class="social-list">
-                    <li class="social-item"><a class="social-link" href="https://twitter.com/LeaderboardFM"><!-- @import "assets/img/icon/twitter.svg" --></a></li>
-                    <li class="social-item"><a class="social-link" href="https://instagram.com/LeaderboardFM"><!-- @import "assets/img/icon/instagram.svg" --></a></li>
-                    <li class="social-item"><a class="social-link" href="https://t.me/LeaderboardFM"><!-- @import "assets/img/icon/telegram.svg" --></a></li>
+                    <li class="social-item"><a class="social-link" href="https://twitter.com/LeaderboardFM"><svg aria-label="twitter-icon" viewBox="0 0 64 64"><use id="twitter" xlink:href="#twitter"></use></svg></a></li>
                 </ul>
             </div>
         </footer>
@@ -100,6 +94,7 @@
     <svg viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
         <symbol id="heart-outlined"><path d='M24.1846,38.3887 L31.1736,28.4137 C31.4856,27.9617 32.1056,27.8487 32.5586,28.1607 C32.6576,28.2297 32.7436,28.3157 32.8116,28.4137 L39.7996,38.3887 C40.1286,38.8507 40.0206,39.4927 39.5586,39.8217 C39.3896,39.9417 39.1886,40.0067 38.9816,40.0107 L33.9976,40.0107 L33.9976,53.9997 C33.9976,55.1047 33.1026,55.9997 31.9976,55.9997 C30.8936,55.9997 29.9976,55.1047 29.9976,53.9997 L29.9976,40.0107 L25.0036,40.0107 C24.4356,40.0007 23.9846,39.5327 23.9946,38.9647 C23.9976,38.7577 24.0646,38.5567 24.1846,38.3887 Z M33.7806688,15.6827746 C36.7674743,13.2749617 39.4984209,12.0060024 43.009493,12.000464 C50.3434871,12.1196312 56.3599248,17.8090273 56.9108729,25.0495063 C56.977365,25.8350151 56.9900811,26.6293455 56.9499081,27.4166515 C56.5153129,36.9111004 50.0605422,45.6830912 41.1340819,51.8442006 C40.2250208,52.4716413 38.9794401,52.2433429 38.3519994,51.3342819 C37.7245587,50.4252208 37.9528571,49.1796401 38.8619181,48.5521994 C46.861253,43.030999 52.5871822,35.2494989 52.9545951,27.2233493 C52.9861244,26.6050245 52.976302,25.9914512 52.9237666,25.3699667 C52.5280142,20.1697302 48.2089868,16.0854766 42.9803377,16.0001972 C40.5791101,16.0042045 38.6344307,16.9078176 36.2911092,18.7968859 C36.3115382,18.780417 33.8278321,20.8873394 33.1415806,21.3643918 C32.4554073,21.8413897 31.5449969,21.8414765 30.8587326,21.3646094 C30.17175,20.8872431 27.6840485,18.7772148 27.7084348,18.7968742 C25.3649728,16.9076566 23.4207967,16.0042043 21.0554981,15.999936 C15.791965,16.0854746 11.4727922,20.1688537 11.0748932,25.3836537 C11.0237879,25.9882559 11.0137379,26.6028315 11.0449077,27.2327395 C11.4118135,35.2476123 17.1357877,43.0276549 25.1343693,48.5503978 C26.0433207,49.1779972 26.2714016,50.4236178 25.6438022,51.3325693 C25.0162028,52.2415207 23.7705822,52.4696016 22.8616307,51.8420022 C13.9362249,45.6793193 7.48367971,36.9090009 7.04944624,27.4230888 C7.009877,26.6237901 7.02284727,25.8306301 7.08779473,25.0630641 C7.64130126,17.8076723 13.657799,12.1196291 21.0263377,12.0002028 C24.5015501,12.0060023 27.2319577,13.2748138 30.2189042,15.6827863 C30.2912328,15.7410951 31.1987444,16.5096706 31.9998458,17.1705946 C32.7999266,16.5103959 33.7061796,15.7428241 33.7806688,15.6827746 Z'></path></symbol>
         <symbol id="heart-filled"><path d='M56.885,25.066 C56.327,17.738 50.351,12.121 42.947,12 C38.033,12.008 34.81,14.759 32.456,16.768 C32.292,16.908 32.131,17.046 31.973,17.179 C31.815,17.045 31.653,16.908 31.489,16.767 C29.135,14.759 25.912,12.008 20.999,12 C20.986,12.001 20.976,12 20.963,12.001 C13.596,12.121 7.619,17.736 7.062,25.048 C6.996,25.834 6.983,26.633 7.022,27.416 C7.632,40.726 19.598,50.6 27.052,54.345 C28.392,55.019 29.971,54.067 29.971,52.568 L29.971,40.011 L24.977,40.011 C24.409,40.001 23.957,39.532 23.967,38.965 C23.971,38.758 24.037,38.557 24.157,38.389 L31.146,28.414 C31.459,27.962 32.079,27.849 32.531,28.161 C32.63,28.23 32.716,28.316 32.784,28.414 L39.773,38.389 C40.102,38.851 39.993,39.492 39.531,39.821 C39.363,39.941 39.161,40.007 38.954,40.011 L33.971,40.011 L33.971,52.573 C33.971,54.073 35.55,55.024 36.89,54.351 C44.336,50.61 56.313,40.735 56.922,27.428 C56.963,26.637 56.949,25.837 56.885,25.066'></path></symbol>
+        <symbol id="twitter"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></symbol>
     </svg>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
